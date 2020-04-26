@@ -1,0 +1,109 @@
+//LINE FOLLOWING CAR
+
+//including the library
+#include <AFMotor.h>
+#include <iostream>
+
+using namespace std;
+
+//defining pins and variables
+#define left A0
+#define right A1
+
+
+//defining motors and specifying their frequency
+AF_DCMotor motor1(1, MOTOR12_1KHZ);
+AF_DCMotor motor2(2, MOTOR12_1KHZ);
+AF_DCMotor motor3(3, MOTOR12_1KHZ);
+AF_DCMotor motor4(4, MOTOR34_1KHZ);
+
+
+void setup()
+{
+
+  //declaring the type of pins
+  pinMode(left,INPUT);
+  pinMode(right,INPUT);
+
+  //beginning serial communication
+  Serial.begin(9600);
+
+}
+
+
+void loop()
+{
+
+  //printing values of the sensors on the serial monitor
+  Serial.println(digitalRead(left));
+  Serial.println(digitalRead(right));
+
+
+  //move the robot forward
+
+  //for line detected by both sensors.
+  if(digitalRead(left)==0 && digitalRead(right)==0)
+  {
+
+    //setting the run mode of motor 1 to backward
+    motor1.run(BACKWARD);
+    //setting the speed of motor 1 to 250
+    motor1.setSpeed(250);
+    //setting the run mode of motor 2 to forward
+    motor2.run(FORWARD);
+    //setting the speed of motor 2 to 250
+    motor2.setSpeed(250);
+    //setting the run mode of motor 3 to backward
+    motor3.run(BACKWARD);
+    //setting the speed of motor 3 to 250
+    motor3.setspeed(250);
+    //setting the run mode of motor 4 to forward
+    motor4.run(FORWARD);
+    //setting the speed of motor 4 to 250
+    motor4.setSpeed(250);
+    //setting the run mode of motor 1 to backward
+    motor1.run(BACKWARD);
+    //setting the speed of motor 1 to 250
+    motor1.setSpeed(200);
+    //setting the run mode of motor 1 to backward
+    motor2.run(FORWARD);
+    //setting the speed of motor 2 to 200
+    motor2.setSpeed(200);
+    //setting the run mode of motor 3 to backward
+    motor3.run(BACKWARD);
+    //setting the speed of motor 3 to 200
+    motor3.setspeed(200);
+    //setting the run mode of motor 4 to forward
+    motor4.run(FORWARD);
+    //setting the speed of motor 4 to 200
+    motor4.setSpeed(200);
+
+  }
+
+
+  //stop the robot
+
+  //for line not detected by both sensors.
+  else if(!digitalRead(left)==0 && !digitalRead(right)==0)
+  {
+
+    //setting the run mode of motor 1 to stop
+    motor1.run(RELEASE);
+    //setting the speed of motor 1 to 0
+    motor1.setSpeed(0);
+    //setting the run mode of motor 2 to stop
+    motor2.run(RELEASE);
+    //setting the speed of motor 2 to 0
+    motor2.setSpeed(0);
+    //setting the run mode of motor 3 to stop
+    motor3.run(RELEASE);
+    //setting the speed of motor 3 to 0
+    motor3.setspeed(0)
+    //setting the run mode of motor 4 to stop
+    motor4.run(RELEASE);
+    //setting the speed of motor 4 to 0
+    motor4.setSpeed(0);
+
+  }
+
+}
