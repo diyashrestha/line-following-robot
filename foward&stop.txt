@@ -1,6 +1,11 @@
 //LINE FOLLOWING CAR
+// DIYA SHRESTHA
 
-//including the library
+//REFERENCES USED FOR THE CODE:
+//https://learn.adafruit.com/afmotor-library-reference
+//https://projectiot123.com/2019/03/25/l298-motor-driver-simulation-in-proteus/
+
+//including the library AFMotor.h which provides speed and direction control upto four DC motors
 #include <AFMotor.h>
 #include <iostream>
 
@@ -12,10 +17,10 @@ using namespace std;
 
 
 //defining motors and specifying their frequency
-AF_DCMotor motor1(1, MOTOR12_1KHZ);
-AF_DCMotor motor2(2, MOTOR12_1KHZ);
-AF_DCMotor motor3(3, MOTOR12_1KHZ);
-AF_DCMotor motor4(4, MOTOR34_1KHZ);
+AF_DCMotor Motor_A(A, MOTOR12_1KHZ);
+AF_DCMotor Motor_B(B, MOTOR12_1KHZ);
+AF_DCMotor Motor_C(C, MOTOR12_1KHZ);
+AF_DCMotor Motor_D(D, MOTOR34_1KHZ);
 
 
 void setup()
@@ -25,7 +30,7 @@ void setup()
   pinMode(left,INPUT);
   pinMode(right,INPUT);
 
-  //beginning serial communication
+  //turning on serial communication between computer and arduino
   Serial.begin(9600);
 
 }
@@ -46,37 +51,37 @@ void loop()
   {
 
     //setting the run mode of motor 1 to backward
-    motor1.run(BACKWARD);
+    Motor_A.run(BACKWARD);
     //setting the speed of motor 1 to 250
-    motor1.setSpeed(250);
+    Motor_A.setSpeed(250);
     //setting the run mode of motor 2 to forward
-    motor2.run(FORWARD);
+    Motor_B.run(FORWARD);
     //setting the speed of motor 2 to 250
-    motor2.setSpeed(250);
+    Motor_B.setSpeed(250);
     //setting the run mode of motor 3 to backward
-    motor3.run(BACKWARD);
+    Motor_C.run(BACKWARD);
     //setting the speed of motor 3 to 250
-    motor3.setspeed(250);
+    Motor_C.setspeed(250);
     //setting the run mode of motor 4 to forward
-    motor4.run(FORWARD);
+    Motor_D.run(FORWARD);
     //setting the speed of motor 4 to 250
-    motor4.setSpeed(250);
+    Motor_D.setSpeed(250);
     //setting the run mode of motor 1 to backward
-    motor1.run(BACKWARD);
+    Motor_A.run(BACKWARD);
     //setting the speed of motor 1 to 250
-    motor1.setSpeed(200);
+    Motor_A.setSpeed(200);
     //setting the run mode of motor 1 to backward
-    motor2.run(FORWARD);
+    Motor_B.run(FORWARD);
     //setting the speed of motor 2 to 200
-    motor2.setSpeed(200);
+    Motor_B.setSpeed(200);
     //setting the run mode of motor 3 to backward
-    motor3.run(BACKWARD);
+    Motor_C.run(BACKWARD);
     //setting the speed of motor 3 to 200
-    motor3.setspeed(200);
+    Motor_C.setspeed(200);
     //setting the run mode of motor 4 to forward
-    motor4.run(FORWARD);
+    Motor_D.run(FORWARD);
     //setting the speed of motor 4 to 200
-    motor4.setSpeed(200);
+    Motor_D.setSpeed(200);
 
   }
 
@@ -88,21 +93,21 @@ void loop()
   {
 
     //setting the run mode of motor 1 to stop
-    motor1.run(RELEASE);
+    Motor_A.run(RELEASE);
     //setting the speed of motor 1 to 0
-    motor1.setSpeed(0);
+    Motor_A.setSpeed(0);
     //setting the run mode of motor 2 to stop
-    motor2.run(RELEASE);
+    Motor_B.run(RELEASE);
     //setting the speed of motor 2 to 0
-    motor2.setSpeed(0);
+    Motor_B.setSpeed(0);
     //setting the run mode of motor 3 to stop
-    motor3.run(RELEASE);
+    Motor_C.run(RELEASE);
     //setting the speed of motor 3 to 0
-    motor3.setspeed(0)
+    Motor_C.setspeed(0)
     //setting the run mode of motor 4 to stop
-    motor4.run(RELEASE);
+    Motor_D.run(RELEASE);
     //setting the speed of motor 4 to 0
-    motor4.setSpeed(0);
+    Motor_D.setSpeed(0);
 
   }
 
