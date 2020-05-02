@@ -35,7 +35,7 @@ void setup()
 
 }
 
-//I Diya Shrestha did the coding on my own with the help of the above references.
+//I Diya Shrestha did the coding on my own with the help of above references.
 
 void loop()
 {
